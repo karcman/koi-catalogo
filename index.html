@@ -37,7 +37,27 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 10px; /* Menos padding en móvil */
+            padding-top: 50px; /* EL CAMBIO: Empujamos todo hacia abajo para la franja */
             box-sizing: border-box;
+        }
+
+        /* --- ESTILOS DE LA FRANJA DE ANUNCIOS --- */
+        #barra-anuncios {
+            background-color: #052447; /* Tu azul oscuro corporativo */
+            color: white;
+            text-align: center;
+            padding: 10px 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            
+            position: fixed; /* Esto la deja pegada arriba */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Asegura que siempre flote por encima de todo */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombrita para que resalte */
         }
 
         /* TIPOGRAFÍA JACQUARD */
@@ -144,6 +164,10 @@
     </style>
 </head>
 <body>
+
+    <div id="barra-anuncios">
+        🗣️🚛 ENVÍOS A TODA VENEZUELA POR MRW Y ZOOM - ENTREGAS PERSONALES
+    </div>
 
     <header>
         <h1>Bienvenido a Koi</h1>
