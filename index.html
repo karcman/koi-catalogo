@@ -43,21 +43,36 @@
 
         /* --- ESTILOS DE LA FRANJA DE ANUNCIOS --- */
         #barra-anuncios {
-            background-color: #052447; /* Tu azul oscuro corporativo */
+            background-color: #052447; 
             color: white;
-            text-align: center;
-            padding: 10px 5px;
-            font-size: 0.85rem;
+            padding: 6px 0; /* MUCHO MÁS FINA (bajamos de 10px a 6px) */
+            font-size: 0.75rem; /* Letra un poco más pequeña */
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             
-            position: fixed; /* Esto la deja pegada arriba */
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000; /* Asegura que siempre flote por encima de todo */
-            box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* Sombrita para que resalte */
+            z-index: 1000;
+            
+            /* LAS DOS REGLAS PARA QUE NO HAGA "ENTER" */
+            overflow: hidden; /* Esconde el texto que sobra a los lados */
+            white-space: nowrap; /* Obliga al texto a quedarse en una sola línea */
+        }
+
+        /* EL MOTOR QUE SE MUEVE */
+        .texto-corredizo {
+            display: inline-block;
+            /* Llama a la animación que creamos abajo. 18s es la velocidad, cámbialo si lo quieres más rápido o lento */
+            animation: correrTexto 18s linear infinite; 
+        }
+
+        /* LA MAGIA DE LA ANIMACIÓN (KEYFRAMES) */
+        @keyframes correrTexto {
+            0% { transform: translateX(10%); } /* Empieza un poco a la derecha */
+            100% { transform: translateX(-50%); } /* Termina rodando hacia la izquierda */
         }
 
         /* TIPOGRAFÍA JACQUARD */
@@ -166,7 +181,9 @@
 <body>
 
     <div id="barra-anuncios">
-        🗣️🚛 ENVÍOS A TODA VENEZUELA POR MRW Y ZOOM - ENTREGAS PERSONALES
+        <div class="texto-corredizo">
+            🗣️🚛 ENVÍOS A TODA VENEZUELA POR MRW Y ZOOM - ENTREGAS PERSONALES &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 🗣️🚛 ENVÍOS A TODA VENEZUELA POR MRW Y ZOOM - ENTREGAS PERSONALES
+        </div>
     </div>
 
     <header>
