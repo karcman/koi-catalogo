@@ -103,26 +103,46 @@
             font-size: 1rem;
         }
 
+/* EL CONTENEDOR DE LOS FILTROS */
         .botones-filtro {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap; /* Para que bajen si no caben en móvil */
-            gap: 6px;
-            margin-bottom: 15px; /* Menos margen abajo para que las camisetas suban */
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 0 5px 10px 5px; /* Un poco de espacio para respirar */
+
+            /* LA MAGIA DEL SCROLL HORIZONTAL */
+            flex-wrap: nowrap; /* Prohíbe que los botones bajen a la siguiente línea */
+            overflow-x: auto; /* Activa el scroll horizontal */
+            justify-content: flex-start; /* Alinea todo a la izquierda para empezar a deslizar */
+            
+            /* Ocultamos la barra de scroll (scroll invisible) */
+            scrollbar-width: none; /* Para Firefox */
         }
 
+        /* Ocultamos la barra en Chrome, Safari y celulares */
+        .botones-filtro::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* EL DISEÑO DE CADA BOTÓN */
         .botones-filtro button {
             background-color: white;
             color: #052447;
             border: 2px solid #052447;
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 20px;
             cursor: pointer;
-            font-size: 1.2rem;
-            margin: 3px; /* Un poco de margen extra por seguridad */
+            font-size: 1.1rem;
+            font-family: "Jacquard 24", system-ui;
+            
+            /* SÚPER IMPORTANTE: Evita que el navegador aplaste los botones para que quepan */
+            flex-shrink: 0; 
         }
 
-        .botones-filtro button:hover { background-color: #052447; color: white; }
+        .botones-filtro button:hover { 
+            background-color: #052447; 
+            color: white; 
+        }
 
         /* --- LA VITRINA (GRID DE PORTADAS) --- */
         #contenedor-vitrina {
@@ -198,6 +218,7 @@
             <button onclick="filtrar('todas')">Todas</button>
             <button onclick="filtrar('retros')">Retros</button>
             <button onclick="filtrar('actuales')">Actuales</button>
+            <button onclick="filtrar('selecciones')">Selecciones</button>
         </div>
     </div>
 
@@ -213,7 +234,7 @@
             <h2>FC Barcelona<br>Black Mamba (25/26)</h2>
         </a>
 
-        <a href="arglocal2026.html" class="tarjeta-portada" data-categoria="actuales" data-claves="Argentina local mundial 2026 Lionel Leo Messi Julian Alvarez">
+        <a href="arglocal2026.html" class="tarjeta-portada" data-categoria="selecciones" data-claves="Argentina local mundial 2026 Lionel Leo Messi Julian Alvarez">
             <img src="imagenes/argentina_local26/argentinalocal26_messi.png" class="foto-portada" alt="Portada Argentina Local">
             <h2>Argentina Local<br>(Mundial 2026)</h2>
         </a>
